@@ -30,7 +30,7 @@ public static class SetsAndMaps
 
         foreach (var word in words)
         {
-            if (word[0] == word[1]) continue; // skip same-letter words like "aa"
+            if (word[0] == word[1]) continue;
 
             string reversed = $"{word[1]}{word[0]}";
             if (seen.Contains(reversed))
