@@ -29,19 +29,25 @@ public static class Arrays
     /// This function modifies the original list (in-place).
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
+{
+    // If amount equals the list length, no rotation needed
+    if (amount == data.Count)
     {
-        // Step 1: Get the last 'amount' elements from the list
-        // This will be the new beginning of the list
-        List<int> lastPart = data.GetRange(data.Count - amount, amount);
-
-        // Step 2: Get the first part (all items before the rotation point)
-        List<int> firstPart = data.GetRange(0, data.Count - amount);
-
-        // Step 3: Clear the original list so we can rebuild it
-        data.Clear();
-
-        // Step 4: Add the rotated elements first (lastPart), then the rest (firstPart)
-        data.AddRange(lastPart);
-        data.AddRange(firstPart);
+        return;
     }
+
+    // Step 1: Get the last 'amount' elements from the list
+    // This will be the new beginning of the list
+    List<int> lastPart = data.GetRange(data.Count - amount, amount);
+
+    // Step 2: Get the first part (all items before the rotation point)
+    List<int> firstPart = data.GetRange(0, data.Count - amount);
+
+    // Step 3: Clear the original list so we can rebuild it
+    data.Clear();
+
+    // Step 4: Add the rotated elements first (lastPart), then the rest (firstPart)
+    data.AddRange(lastPart);
+    data.AddRange(firstPart);
+}
 }
